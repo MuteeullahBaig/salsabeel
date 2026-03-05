@@ -50,7 +50,7 @@
   .nav-links a {
     color: rgba(255,255,255,0.8); text-decoration: none;
     font-size: 0.9rem; font-weight: 500; letter-spacing: 0.5px;
-    transition: color 0.3s;
+    transition: color 0.3s; cursor: pointer;
   }
   .nav-links a:hover { color: var(--accent); }
   .nav-cta {
@@ -487,12 +487,12 @@
 
 <!-- NAVBAR -->
 <nav>
-  <div class="nav-logo">Salsa<span>beel</span></div>
+  <div class="nav-logo" onclick="window.scrollTo({top:0, behavior:'smooth'});" style="cursor:pointer;">Salsa<span>beel</span></div>
   <ul class="nav-links">
-    <li><a href="#why">Why Us</a></li>
-    <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#how">How It Works</a></li>
-    <li><a href="#" onclick="event.preventDefault(); openModal();" class="nav-cta">Order Now</a></li>
+    <li><a onclick="document.getElementById('why').scrollIntoView({behavior:'smooth'});">Why Us</a></li>
+    <li><a onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'});">Pricing</a></li>
+    <li><a onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'});">How It Works</a></li>
+    <li><a onclick="openModal();" class="nav-cta">Order Now</a></li>
   </ul>
 </nav>
 
@@ -698,10 +698,10 @@
   <div class="footer-logo">Salsa<span>beel</span></div>
   <p>Pure Mineral Water Delivered to Your Doorstep in Lahore</p>
   <div class="footer-links">
-    <a href="#why">Why Us</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#how">How It Works</a>
-    <a href="#" onclick="event.preventDefault(); openModal();">Order Now</a>
+    <a onclick="document.getElementById('why').scrollIntoView({behavior:'smooth'});">Why Us</a>
+    <a onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'});">Pricing</a>
+    <a onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'});">How It Works</a>
+    <a onclick="openModal();">Order Now</a>
     <a href="https://wa.me/923344266468" target="_blank">WhatsApp</a>
   </div>
   <div class="footer-bottom">
