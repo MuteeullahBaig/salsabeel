@@ -818,8 +818,12 @@
     const msg = `🌊 *New Order – Salsabeel Water*\n\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n📍 *Address:* ${address}${locationLink ? `\n🗺️ *Pin Location:* ${locationLink}` : ''}\n📦 *Package:* ${pkg}\n🔢 *Quantity:* ${qty} bottles${notes ? `\n📝 *Notes:* ${notes}` : ''}\n\n_Order placed via website_`;
 
     const url = `https://wa.me/923344266468?text=${encodeURIComponent(msg)}`;
+
+    // Show success message
     document.getElementById('successMsg').style.display = 'block';
-    setTimeout(() => { window.open(url, '_blank'); closeModal(); }, 1000);
+
+    // Open WhatsApp immediately (no setTimeout — required for iPhone Safari)
+    window.location.href = url;
   }
 
   // Scroll animations
