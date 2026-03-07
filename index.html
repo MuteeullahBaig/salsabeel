@@ -806,7 +806,7 @@
     const phone = document.getElementById('phone').value.trim();
     const address = document.getElementById('address').value.trim();
     const pkg = document.getElementById('package').value;
-    const qty = document.getElementById('qty').value.trim();
+    const qty = parseInt(document.getElementById('qty').value.trim());
     const notes = document.getElementById('notes').value.trim();
     const locationLink = document.getElementById('locationLink').value.trim();
 
@@ -815,7 +815,13 @@
       return;
     }
 
-    const msg = `🌊 *New Order – Salsabeel Water*\n\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n📍 *Address:* ${address}${locationLink ? `\n🗺️ *Pin Location:* ${locationLink}` : ''}\n📦 *Package:* ${pkg}\n🔢 *Quantity:* ${qty} bottles${notes ? `\n📝 *Notes:* ${notes}` : ''}\n\n_Order placed via website_`;
+    // Calculate price per bottle based on package
+    let pricePerBottle = 120;
+    if (pkg.includes('Family')) pricePerBottle = 105;
+    else if (pkg.includes('Office') || pkg.includes('Bulk')) pricePerBottle = 90;
+    const totalBill = pricePerBottle * qty;
+
+    const msg = `🌊 *New Order – Salsabeel Water*\n\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n📍 *Address:* ${address}${locationLink ? `\n🗺️ *Pin Location:* ${locationLink}` : ''}\n📦 *Package:* ${pkg}\n🔢 *Quantity:* ${qty} bottles\n💰 *Price per Bottle:* Rs. ${pricePerBottle}\n💵 *Total Bill:* Rs. ${totalBill}${notes ? `\n📝 *Notes:* ${notes}` : ''}\n\n_Order placed via website_`;
 
     const url = `https://wa.me/923086274772?text=${encodeURIComponent(msg)}`;
 
